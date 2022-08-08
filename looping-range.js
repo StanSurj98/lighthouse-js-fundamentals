@@ -8,19 +8,20 @@
 // 3. step being 0, or negative
 
 const range = function (start, end, step) {
-  if (start === undefined || start > end || step === 0 || step < 0) {
-    return [];
+  // I'm going to start by adding the conditionals that we DO NOT want
+  if (start === undefined || start > end || step === 0 || step < 0) { 
+    return []; // I want the code to stop and return an empty array if such conditionals are met
   }
-
-  let validCount = [];
+  // creating a LET array so that I can add things to it later
+  let validCount = []; // I'm creating an empty array that I will eventually push the correct numbers into
   
-  let index = start;
-  while (index <= end) {
-    validCount.push(index);
-    index = index + step;
+  // the code below will be a while loop 
+  while (start <= end) { // want the loop to run so long as our current number is < the end
+    validCount.push(start); // will push the numbers into the empty variable
+    start = start + step; // once that is done, we will increment the number by our specific step parameter
   }
 
-  return validCount;
+  return validCount; // at the end of the function I want to see a return of the new array we made
 
 }
 
@@ -28,5 +29,5 @@ console.log(range(10, 50, 2));
 console.log(range(0, 10, 2));
 console.log(range(10, 30, 5));
 console.log(range(-5, 2, 3));
-
+console.log(range(10, 2, -1)); // should be undefined
 
